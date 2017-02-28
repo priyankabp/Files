@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void saveNote(View view) {
         try{
             FileOutputStream outputStream = openFileOutput(titleNote.getText().toString().replace("",""),MODE_APPEND);
+            outputStream.write(bodyNote.getText().toString().getBytes());
+            outputStream.close();
         }catch (Exception e){
             Log.e("ERROR",e.getMessage());
         }
